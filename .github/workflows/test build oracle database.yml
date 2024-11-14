@@ -18,4 +18,4 @@ jobs:
       working-directory: OracleDatabase/SingleInstance/dockerfiles
       run: |
         chmod +x ./buildContainerImage.sh
-        ./buildContainerImage.sh -s -v 11.2.0.2 -p
+        ./buildContainerImage.sh -x -v 11.2.0.2 -p
