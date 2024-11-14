@@ -1,0 +1,21 @@
+name: Build Oracle Database Docker Image
+
+on:
+  push:
+    branches:
+      - main  # Atur sesuai cabang yang diinginkan
+  workflow_dispatch:
+
+jobs:
+  build-docker-image:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v3
+
+    - name: Change Directory and Build Docker Image
+      working-directory: OracleDatabase/SingleInstance/dockerfiles
+      run: |
+        chmod +x ./buildContainerImage.sh
+        ./buildContainerImage.sh -e -v 11.2.0.2 -p
